@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fern Allern — Author of Dark Fae Romance</title>
+  <meta name="description" content="Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic.">
+  <link rel="canonical" href="https://fernallern.com/">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #111; --bg2: #1a1a1a; --bg3: #222; --gold: #f0a500; --gold2: #c47f00; --text: #e0d8c8; --muted: #8a8070; }
+    body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { background: var(--bg2); border-bottom: 1px solid #2a2520; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    header .logo { font-size: 1.4rem; color: var(--gold); letter-spacing: 0.08em; font-style: italic; }
+    nav a { color: var(--text); margin-left: 2rem; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    nav a:hover { color: var(--gold); text-decoration: none; }
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; background: radial-gradient(ellipse at 50% 0%, #2a1a00 0%, var(--bg) 70%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L32 25 L50 28 L32 31 L30 55 L28 31 L10 28 L28 25 Z' fill='none' stroke='%23f0a50015' stroke-width='1'/%3E%3C/svg%3E"); background-size: 60px 60px; pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.1; color: #fff; margin-bottom: 1.5rem; text-shadow: 0 0 40px rgba(240,165,0,0.3); }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; }
+    .btn { display: inline-block; background: var(--gold); color: #111; padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; margin: 0.5rem; transition: background 0.2s; }
+    .btn:hover { background: var(--gold2); text-decoration: none; color: #111; }
+    .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: #111; }
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 1.5rem; }
+    .divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem 0 2rem; }
+    /* Series Section */
+    .series-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .book-card { background: var(--bg2); border: 1px solid #2a2520; border-radius: 4px; padding: 2rem; transition: border-color 0.3s, transform 0.2s; }
+    .book-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .book-number { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .book-title { font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; }
+    .book-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .book-status { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--gold); color: var(--gold); border-radius: 2px; }
+    .book-status.available { background: var(--gold); color: #111; }
+    /* About bio */
+    .bio-section { background: var(--bg2); }
+    .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
+    @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; } nav { display: none; } }
+    .bio-avatar { width: 100%; aspect-ratio: 1; background: var(--bg3); border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 5rem; max-width: 260px; margin: 0 auto; }
+    .bio-text p { color: var(--muted); margin-bottom: 1rem; }
+    /* Newsletter */
+    .newsletter-section { background: radial-gradient(ellipse at center, #1f1500 0%, var(--bg) 80%); text-align: center; }
+    .newsletter-form { max-width: 520px; margin: 2rem auto 0; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .newsletter-form input { flex: 1; min-width: 240px; padding: 0.9rem 1.2rem; background: var(--bg3); border: 1px solid #3a3020; color: var(--text); font-size: 1rem; border-radius: 2px; }
+    .newsletter-form input:focus { outline: none; border-color: var(--gold); }
+    .newsletter-form button { background: var(--gold); color: #111; border: none; padding: 0.9rem 1.8rem; font-weight: bold; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border-radius: 2px; }
+    .newsletter-form button:hover { background: var(--gold2); }
+    /* CTA Amazon */
+    .amazon-cta { background: var(--bg2); border-top: 1px solid #2a2520; }
+    .cta-box { background: var(--bg3); border: 1px solid var(--gold); border-radius: 4px; padding: 3rem; text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-box h3 { font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
+    .cta-box p { color: var(--muted); margin-bottom: 2rem; }
+    footer { background: var(--bg2); border-top: 1px solid #2a2520; padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--gold); }
+    .footer-links { margin-bottom: 1rem; }
+    .footer-links a { margin: 0 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Fern Allern</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Dark Fae Romantasy</div>
+    <h1>Where thorns bloom <em>in the dark</em></h1>
+    <p>Fern Allern writes lush, dangerous fae romance for readers who like their magic wild and their love stories complicated.</p>
+    <a href="https://thornwoodaccord.com" class="btn">Explore the Series</a>
+    <a href="#series" class="btn btn-outline">The Books</a>
+  </div>
+</section>
+
+<section id="series">
+  <div class="container">
+    <div class="section-label">The Thornwood Accord Trilogy</div>
+    <h2 class="section-title">Three courts. One impossible bargain.</h2>
+    <div class="divider"></div>
+    <p style="color:var(--muted);max-width:640px;">A world where fae courts war in shadow, where bargains cut deeper than blades, and where one mortal woman discovers the price of surviving the wild places between worlds.</p>
+
+    <div class="series-grid">
+      <div class="book-card">
+        <div class="book-number">Book One</div>
+        <div class="book-title">Bound by Thorns</div>
+        <p class="book-desc">Lyra never wanted to cross into the Thornwood. But when her sister is taken by the Court of Ash, she has no choice but to make a bargain with the most dangerous fae in all the wild lands — Lord Calder, who wears the thorns like a crown.</p>
+        <span class="book-status available">Coming to Kindle & Audible</span>
+      </div>
+      <div class="book-card">
+        <div class="book-number">Book Two</div>
+        <div class="book-title">Court of Ash and Hunger</div>
+        <p class="book-desc">The bargain is broken. The courts are fracturing. And Lyra must choose between the mortal world she grew up in and the fae lord who has become impossible to leave behind.</p>
+        <span class="book-status">Coming Soon</span>
+      </div>
+      <div class="book-card">
+        <div class="book-number">Book Three</div>
+        <div class="book-title">Queen of the Fading Wild</div>
+        <p class="book-desc">All courts. All thorns. One queen who never wanted a crown — and one war that can only end one way.</p>
+        <span class="book-status">Coming Soon</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="https://thornwoodaccord.com" class="btn">Full Series Details →</a>
+    </div>
+  </div>
+</section>
+
+<section class="bio-section">
+  <div class="container">
+    <div class="bio-grid">
+      <div>
+        <div class="bio-avatar">🌿</div>
+      </div>
+      <div class="bio-text">
+        <div class="section-label">About the Author</div>
+        <h2 class="section-title">Fern Allern</h2>
+        <div class="divider"></div>
+        <p>Fern Allern writes dark fae romance that lives in the thorny space between longing and danger. She has always been drawn to stories where love is as wild and unpredictable as the woods themselves — stories where the monster might be the one worth trusting.</p>
+        <p>The Thornwood Accord Trilogy is her debut series: a slow-burn enemies-to-lovers fae romance with all the bargains, courts, and forbidden magic you could want.</p>
+        <p>When not writing, Fern can be found reading romantasy, drinking too much tea, and having deeply personal conversations with her houseplants.</p>
+        <a href="about.html" class="btn btn-outline" style="margin-top:1rem;">More About Fern →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="container">
+    <div class="section-label">Stay Connected</div>
+    <h2 class="section-title">Join the Thornwood</h2>
+    <div class="divider" style="margin:1rem auto 2rem;"></div>
+    <p style="color:var(--muted);max-width:520px;margin:0 auto 2rem;">Be the first to know about release dates, cover reveals, bonus content, and everything happening in the Thornwood universe.</p>
+    <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit">Join the Thornwood</button>
+    </form>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:1rem;">No spam. Unsubscribe anytime. Just fae court drama and book news.</p>
+  </div>
+</section>
+
+<section class="amazon-cta">
+  <div class="container">
+    <div class="cta-box">
+      <h3>Bound by Thorns</h3>
+      <p>The Thornwood Accord Trilogy begins. Coming soon to Amazon Kindle &amp; Audible — sign up above to be notified the moment it goes live.</p>
+      <a href="https://www.amazon.com/kindle-dbs/entity/author" class="btn" target="_blank" rel="noopener">Coming Soon to Amazon Kindle</a>
+      <a href="https://www.audible.com" class="btn btn-outline" target="_blank" rel="noopener">Coming Soon to Audible</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
+  </div>
+  <p>&copy; 2025 Fern Allern. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

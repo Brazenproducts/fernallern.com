@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Fern Allern</title>
+  <meta name="description" content="Get in touch with Fern Allern — fae romance author.">
+  <link rel="canonical" href="https://fernallern.com/contact.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #111; --bg2: #1a1a1a; --bg3: #222; --gold: #f0a500; --gold2: #c47f00; --text: #e0d8c8; --muted: #8a8070; }
+    body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; }
+    a { color: var(--gold); }
+    header { background: var(--bg2); border-bottom: 1px solid #2a2520; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    header .logo { font-size: 1.4rem; color: var(--gold); letter-spacing: 0.08em; font-style: italic; }
+    nav a { color: var(--text); margin-left: 2rem; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; }
+    nav a:hover { color: var(--gold); }
+    @media (max-width: 700px) { nav { display: none; } }
+    .page-hero { padding: 5rem 2rem 3rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, #1f1500 0%, var(--bg) 70%); }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 1rem; }
+    .page-hero p { color: var(--muted); font-size: 1.1rem; }
+    section { padding: 4rem 2rem; }
+    .container { max-width: 720px; margin: 0 auto; }
+    .contact-form { background: var(--bg2); border: 1px solid #2a2520; border-radius: 4px; padding: 2.5rem; }
+    label { display: block; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; margin-top: 1.2rem; }
+    input, textarea, select { width: 100%; padding: 0.8rem 1rem; background: var(--bg3); border: 1px solid #3a3020; color: var(--text); font-size: 1rem; font-family: inherit; border-radius: 2px; }
+    input:focus, textarea:focus { outline: none; border-color: var(--gold); }
+    textarea { height: 160px; resize: vertical; }
+    button[type="submit"] { margin-top: 1.5rem; background: var(--gold); color: #111; border: none; padding: 0.9rem 2rem; font-size: 0.95rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border-radius: 2px; width: 100%; }
+    button[type="submit"]:hover { background: var(--gold2); }
+    .contact-note { color: var(--muted); font-size: 0.9rem; margin-top: 1.5rem; }
+    footer { background: var(--bg2); border-top: 1px solid #2a2520; padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--gold); }
+    .footer-links { margin-bottom: 1rem; }
+    .footer-links a { margin: 0 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Fern Allern</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <h1>Contact</h1>
+  <p>Questions, media inquiries, or just want to talk about fae courts?</p>
+</div>
+
+<section>
+  <div class="container">
+    <form class="contact-form" action="#" method="post" onsubmit="return false;">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="How shall I address you?" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+      <label for="subject">Subject</label>
+      <select id="subject" name="subject">
+        <option value="reader">Reader Message</option>
+        <option value="media">Media / Press Inquiry</option>
+        <option value="bookclub">Book Club Request</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p class="contact-note">I do my best to respond within a few days. For urgent media inquiries, please note that in the subject line. I love hearing from readers — your messages mean more than you know.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
+  </div>
+  <p>&copy; 2025 Fern Allern. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
