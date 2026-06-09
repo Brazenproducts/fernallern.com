@@ -1,179 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fern Allern — Author of Dark Fae Romance</title>
-  <meta name="description" content="Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic.">
-  <link rel="canonical" href="https://fernallern.com/">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #111; --bg2: #1a1a1a; --bg3: #222; --gold: #f0a500; --gold2: #c47f00; --text: #e0d8c8; --muted: #8a8070; }
-    body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.7; }
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header { background: var(--bg2); border-bottom: 1px solid #2a2520; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
-    header .logo { font-size: 1.4rem; color: var(--gold); letter-spacing: 0.08em; font-style: italic; }
-    nav a { color: var(--text); margin-left: 2rem; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
-    nav a:hover { color: var(--gold); text-decoration: none; }
-    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; background: radial-gradient(ellipse at 50% 0%, #2a1a00 0%, var(--bg) 70%); position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L32 25 L50 28 L32 31 L30 55 L28 31 L10 28 L28 25 Z' fill='none' stroke='%23f0a50015' stroke-width='1'/%3E%3C/svg%3E"); background-size: 60px 60px; pointer-events: none; }
-    .hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-    .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.1; color: #fff; margin-bottom: 1.5rem; text-shadow: 0 0 40px rgba(240,165,0,0.3); }
-    .hero h1 em { color: var(--gold); font-style: normal; }
-    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; }
-    .btn { display: inline-block; background: var(--gold); color: #111; padding: 0.9rem 2.2rem; font-size: 0.95rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; margin: 0.5rem; transition: background 0.2s; }
-    .btn:hover { background: var(--gold2); text-decoration: none; color: #111; }
-    .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
-    .btn-outline:hover { background: var(--gold); color: #111; }
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
-    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 1.5rem; }
-    .divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem 0 2rem; }
-    /* Series Section */
-    .series-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .book-card { background: var(--bg2); border: 1px solid #2a2520; border-radius: 4px; padding: 2rem; transition: border-color 0.3s, transform 0.2s; }
-    .book-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .book-number { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .book-title { font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; }
-    .book-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-    .book-status { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--gold); color: var(--gold); border-radius: 2px; }
-    .book-status.available { background: var(--gold); color: #111; }
-    /* About bio */
-    .bio-section { background: var(--bg2); }
-    .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
-    @media (max-width: 720px) { .bio-grid { grid-template-columns: 1fr; } nav { display: none; } }
-    .bio-avatar { width: 100%; aspect-ratio: 1; background: var(--bg3); border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 5rem; max-width: 260px; margin: 0 auto; }
-    .bio-text p { color: var(--muted); margin-bottom: 1rem; }
-    /* Newsletter */
-    .newsletter-section { background: radial-gradient(ellipse at center, #1f1500 0%, var(--bg) 80%); text-align: center; }
-    .newsletter-form { max-width: 520px; margin: 2rem auto 0; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-    .newsletter-form input { flex: 1; min-width: 240px; padding: 0.9rem 1.2rem; background: var(--bg3); border: 1px solid #3a3020; color: var(--text); font-size: 1rem; border-radius: 2px; }
-    .newsletter-form input:focus { outline: none; border-color: var(--gold); }
-    .newsletter-form button { background: var(--gold); color: #111; border: none; padding: 0.9rem 1.8rem; font-weight: bold; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border-radius: 2px; }
-    .newsletter-form button:hover { background: var(--gold2); }
-    /* CTA Amazon */
-    .amazon-cta { background: var(--bg2); border-top: 1px solid #2a2520; }
-    .cta-box { background: var(--bg3); border: 1px solid var(--gold); border-radius: 4px; padding: 3rem; text-align: center; max-width: 700px; margin: 0 auto; }
-    .cta-box h3 { font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
-    .cta-box p { color: var(--muted); margin-bottom: 2rem; }
-    footer { background: var(--bg2); border-top: 1px solid #2a2520; padding: 3rem 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
-    footer a { color: var(--gold); }
-    .footer-links { margin-bottom: 1rem; }
-    .footer-links a { margin: 0 1rem; }
-  </style>
+  <meta name="description" content="Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://fernallern.com/" />
+  <meta property="og:title" content="Fern Allern — Author of Dark Fae Romance" />
+  <meta property="og:description" content="Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fernallern.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fern Allern — Author of Dark Fae Romance" />
+  <meta name="twitter:description" content="Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            'soft-xl': '0 20px 45px rgba(17, 24, 39, 0.08)'
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body>
-
-<header>
-  <div class="logo">Fern Allern</div>
-  <nav>
-    <a href="/">Home</a>
-    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Dark Fae Romantasy</div>
-    <h1>Where thorns bloom <em>in the dark</em></h1>
-    <p>Fern Allern writes lush, dangerous fae romance for readers who like their magic wild and their love stories complicated.</p>
-    <a href="https://thornwoodaccord.com" class="btn">Explore the Series</a>
-    <a href="#series" class="btn btn-outline">The Books</a>
-  </div>
-</section>
-
-<section id="series">
-  <div class="container">
-    <div class="section-label">The Thornwood Accord Trilogy</div>
-    <h2 class="section-title">Three courts. One impossible bargain.</h2>
-    <div class="divider"></div>
-    <p style="color:var(--muted);max-width:640px;">A world where fae courts war in shadow, where bargains cut deeper than blades, and where one mortal woman discovers the price of surviving the wild places between worlds.</p>
-
-    <div class="series-grid">
-      <div class="book-card">
-        <div class="book-number">Book One</div>
-        <div class="book-title">Bound by Thorns</div>
-        <p class="book-desc">Lyra never wanted to cross into the Thornwood. But when her sister is taken by the Court of Ash, she has no choice but to make a bargain with the most dangerous fae in all the wild lands — Lord Calder, who wears the thorns like a crown.</p>
-        <span class="book-status available">Coming to Kindle & Audible</span>
-      </div>
-      <div class="book-card">
-        <div class="book-number">Book Two</div>
-        <div class="book-title">Court of Ash and Hunger</div>
-        <p class="book-desc">The bargain is broken. The courts are fracturing. And Lyra must choose between the mortal world she grew up in and the fae lord who has become impossible to leave behind.</p>
-        <span class="book-status">Coming Soon</span>
-      </div>
-      <div class="book-card">
-        <div class="book-number">Book Three</div>
-        <div class="book-title">Queen of the Fading Wild</div>
-        <p class="book-desc">All courts. All thorns. One queen who never wanted a crown — and one war that can only end one way.</p>
-        <span class="book-status">Coming Soon</span>
-      </div>
+<body class="bg-slate-50 font-sans text-zinc-900 antialiased">
+  <header class="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/85 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="/" class="text-lg font-black tracking-tight text-zinc-950">fernallern.com</a>
+      <nav class="hidden items-center gap-6 md:flex">
+        <a href="#top-picks" class="text-sm font-semibold text-zinc-600 transition hover:text-zinc-950">Top Picks</a><a href="#reviews" class="text-sm font-semibold text-zinc-600 transition hover:text-zinc-950">Reviews</a><a href="#buying-guide" class="text-sm font-semibold text-zinc-600 transition hover:text-zinc-950">Buying Guide</a><a href="#blog" class="text-sm font-semibold text-zinc-600 transition hover:text-zinc-950">Blog</a><a href="#faq" class="text-sm font-semibold text-zinc-600 transition hover:text-zinc-950">FAQ</a>
+      </nav>
+      <a href="#top-picks" class="inline-flex min-h-11 items-center justify-center rounded-2xl bg-zinc-950 px-5 py-3 text-sm font-black uppercase tracking-[0.14em] text-white transition hover:bg-zinc-800">See Top Picks</a>
     </div>
+  </header>
 
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="https://thornwoodaccord.com" class="btn">Full Series Details →</a>
-    </div>
-  </div>
-</section>
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,146,60,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(99,102,241,0.10),_transparent_30%)]"></div>
+      <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex rounded-full border border-zinc-300 bg-white px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-zinc-700">General Reviews · Expert Picks</span>
+              
+            </div>
+            <h1 class="mt-6 max-w-4xl text-4xl font-black tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">Fern Allern — Author of Dark Fae Romance</h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">Fern Allern writes dark fae romantasy. Author of The Thornwood Accord Trilogy — enter a world of thorns, courts, and forbidden magic.</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#top-picks" class="inline-flex min-h-12 items-center justify-center rounded-2xl bg-orange-500 px-6 py-3 text-sm font-black uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-orange-600">See The Best Picks</a>
+              <a href="#buying-guide" class="inline-flex min-h-12 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-6 py-3 text-sm font-bold text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-900">Why These Picks Work</a>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <div class="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold text-zinc-700 shadow-sm">Updated June 2026</div>
+              <div class="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold text-zinc-700 shadow-sm">Editorial template ready</div>
+              <div class="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-semibold text-zinc-700 shadow-sm">Amazon affiliate links • no extra cost</div>
+            </div>
+          </div>
 
-<section class="bio-section">
-  <div class="container">
-    <div class="bio-grid">
+
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section id="top-picks" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Top Picks</p>
+          <h2 class="mt-3 text-3xl font-black tracking-tight text-zinc-950 sm:text-4xl">A modern shortlist built from the master product database.</h2>
+        </div>
+        <p class="max-w-xl text-sm leading-7 text-zinc-600">Every page uses the same Tailwind-powered master layout so the network can scale without falling back to brittle hardcoded templates.</p>
+      </div>
+
+      
+          <div class="rounded-3xl border border-dashed border-zinc-300 bg-white p-10 text-center shadow-sm">
+            <p class="text-xs font-black uppercase tracking-[0.18em] text-zinc-500">Database-driven template</p>
+            <h2 class="mt-3 text-3xl font-black tracking-tight text-zinc-950">This site is ready for product injection.</h2>
+            <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-zinc-600">No product data is currently available for this site yet. This page is ready for the database-driven pipeline as soon as products are added.</p>
+          </div>
+        
+    </section>
+
+    <section id="buying-guide" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Buying Guide</p>
+          <h2 class="mt-3 text-3xl font-black tracking-tight text-zinc-950 sm:text-4xl">What actually matters before you buy.</h2>
+          <p class="mt-4 max-w-xl text-base leading-7 text-zinc-600">This section gives every site a strong editorial backbone instead of just dumping product links onto a page.</p>
+        </div>
+        <ul class="grid gap-4 text-sm leading-7 text-zinc-700"><li class="flex gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm"><span class="mt-1 text-zinc-900">•</span><span>Start with the product that best balances quality, reviews, and value.</span></li><li class="flex gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm"><span class="mt-1 text-zinc-900">•</span><span>Look for repeat-buyer confidence and strong long-term satisfaction signals.</span></li><li class="flex gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm"><span class="mt-1 text-zinc-900">•</span><span>Avoid overpaying for branding when a better-value alternative exists.</span></li><li class="flex gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm"><span class="mt-1 text-zinc-900">•</span><span>Fit, durability, and everyday usability should drive the final decision.</span></li></ul>
+      </div>
+    </section>
+
+    <section id="faq" class="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">FAQ</p>
+        <h2 class="mt-3 text-3xl font-black tracking-tight text-zinc-950 sm:text-4xl">Common questions, answered cleanly.</h2>
+      </div>
+      <div class="space-y-4"><details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-black text-zinc-950">
+                <span>How were these picks chosen?</span>
+                <span class="text-zinc-400 transition group-open:rotate-45">+</span>
+              </summary>
+              <p class="mt-4 max-w-3xl text-sm leading-7 text-zinc-600">These picks are prioritized for value, buyer confidence, and overall usefulness based on the product data available for this site.</p>
+            </details><details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-black text-zinc-950">
+                <span>Do affiliate links change the price?</span>
+                <span class="text-zinc-400 transition group-open:rotate-45">+</span>
+              </summary>
+              <p class="mt-4 max-w-3xl text-sm leading-7 text-zinc-600">No. Using the affiliate links does not increase your price, but it may help support the site.</p>
+            </details><details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-black text-zinc-950">
+                <span>What if a product is unavailable?</span>
+                <span class="text-zinc-400 transition group-open:rotate-45">+</span>
+              </summary>
+              <p class="mt-4 max-w-3xl text-sm leading-7 text-zinc-600">Inventory and pricing change often. If a pick is unavailable, the next-ranked option is usually the best fallback.</p>
+            </details></div>
+    </section>
+
+    
+    <section id="blog" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Expert Guides</p>
+        <h2 class="mt-3 text-3xl font-black tracking-tight text-zinc-950 sm:text-4xl">Expert Car Care Guides</h2>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-600">In-depth guides covering the questions buyers ask before and after they purchase. Research smarter, maintain better.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="aspect-video bg-slate-100 flex items-center justify-center">
+            <div class="text-center px-6">
+              <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Expert Guide</p>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="text-lg font-black leading-snug text-zinc-950">How to Read Amazon Reviews Without Getting Burned</h3>
+            <p class="mt-3 flex-1 text-sm leading-6 text-zinc-500">Verified purchase, review velocity, and star distribution tell a more accurate story than the average rating. Here&#x27;s how to decode what you&#x27;re looking at.</p>
+            <div class="mt-5">
+              <a href="/blog/how-to-read-amazon-reviews/" class="inline-flex items-center gap-1 text-sm font-bold text-slate-900 hover:underline">
+                Read Guide
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="aspect-video bg-slate-100 flex items-center justify-center">
+            <div class="text-center px-6">
+              <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Expert Guide</p>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="text-lg font-black leading-snug text-zinc-950">Why the Best Value Pick Is Rarely the Cheapest Option</h3>
+            <p class="mt-3 flex-1 text-sm leading-6 text-zinc-500">Price per use, durability, and return rate all feed into real value. The lowest-priced product usually loses this math over time.</p>
+            <div class="mt-5">
+              <a href="/blog/best-value-vs-cheapest-option/" class="inline-flex items-center gap-1 text-sm font-bold text-slate-900 hover:underline">
+                Read Guide
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="aspect-video bg-slate-100 flex items-center justify-center">
+            <div class="text-center px-6">
+              <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Expert Guide</p>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="text-lg font-black leading-snug text-zinc-950">The Smart Buyer&#x27;s Checklist Before Any Online Purchase</h3>
+            <p class="mt-3 flex-1 text-sm leading-6 text-zinc-500">A 60-second pre-purchase checklist that filters out impulse buys, spots pricing manipulation, and surfaces the next-best alternative.</p>
+            <div class="mt-5">
+              <a href="/blog/smart-buyer-checklist/" class="inline-flex items-center gap-1 text-sm font-bold text-slate-900 hover:underline">
+                Read Guide
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-zinc-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
       <div>
-        <div class="bio-avatar">🌿</div>
+        <p class="font-semibold text-zinc-800">fernallern.com</p>
+        <p class="mt-1">Updated 2026-06-09 · Powered by the AXL affiliate master database.</p>
       </div>
-      <div class="bio-text">
-        <div class="section-label">About the Author</div>
-        <h2 class="section-title">Fern Allern</h2>
-        <div class="divider"></div>
-        <p>Fern Allern writes dark fae romance that lives in the thorny space between longing and danger. She has always been drawn to stories where love is as wild and unpredictable as the woods themselves — stories where the monster might be the one worth trusting.</p>
-        <p>The Thornwood Accord Trilogy is her debut series: a slow-burn enemies-to-lovers fae romance with all the bargains, courts, and forbidden magic you could want.</p>
-        <p>When not writing, Fern can be found reading romantasy, drinking too much tea, and having deeply personal conversations with her houseplants.</p>
-        <a href="about.html" class="btn btn-outline" style="margin-top:1rem;">More About Fern →</a>
+      <div class="max-w-2xl text-sm leading-6 text-zinc-500">
+        Disclosure: This page contains affiliate links. If you buy through them, the site may earn a commission at no additional cost to you.
       </div>
     </div>
-  </div>
-</section>
-
-<section class="newsletter-section">
-  <div class="container">
-    <div class="section-label">Stay Connected</div>
-    <h2 class="section-title">Join the Thornwood</h2>
-    <div class="divider" style="margin:1rem auto 2rem;"></div>
-    <p style="color:var(--muted);max-width:520px;margin:0 auto 2rem;">Be the first to know about release dates, cover reveals, bonus content, and everything happening in the Thornwood universe.</p>
-    <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
-      <input type="email" name="email" placeholder="Your email address" required>
-      <button type="submit">Join the Thornwood</button>
-    </form>
-    <p style="font-size:0.8rem;color:var(--muted);margin-top:1rem;">No spam. Unsubscribe anytime. Just fae court drama and book news.</p>
-  </div>
-</section>
-
-<section class="amazon-cta">
-  <div class="container">
-    <div class="cta-box">
-      <h3>Bound by Thorns</h3>
-      <p>The Thornwood Accord Trilogy begins. Coming soon to Amazon Kindle &amp; Audible — sign up above to be notified the moment it goes live.</p>
-      <a href="https://www.amazon.com/kindle-dbs/entity/author?tag=brazenprodu01-20" class="btn" target="_blank" rel="noopener">Coming Soon to Amazon Kindle</a>
-      <a href="https://www.amazon.com/hz/audible/mlp/membership/prime?tag=brazenprodu01-20" class="btn btn-outline" target="_blank" rel="noopener">Coming Soon to Audible</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://thornwoodaccord.com" target="_blank">The Series</a>
-  </div>
-  <p>&copy; 2025 Fern Allern. All rights reserved.</p>
-<p class="amazon-disclaimer" style="margin-top:12px;color:#888;font-size:.85em;">As an Amazon Associate, we may earn from qualifying purchases.</p></footer>
-
+  </footer>
 </body>
 </html>
